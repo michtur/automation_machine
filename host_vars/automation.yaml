@@ -1,0 +1,73 @@
+---
+ansible_user: "michal"
+ansible_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31356434323334376432313663383230303733326439616432326437663064396337636364336236
+          6239336332323635323632616539646530303164653839320a363633353266323338663362356563
+          34356437336339363338663935323239666662646432616137343536393362343366623065663634
+          3164656435333534620a616239366236633265656264333338663737346336366365663266663565
+          3365
+ansible_become_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          37363833326335346238376437333565346638303437386365386137643834653463356631623865
+          6136633332633837653830663165613162646134303937340a653663333031376334636564386239
+          36653764303939653037633930626238303839363939626437643031336364633862396263373763
+          6136663932663139310a316662326233393266666261313531333766343939366630646631626565
+          6135
+ansible_python_interpreter: "/usr/bin/python3.12"
+
+ssh:
+  user: "michal"
+  public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINhov7q87OJ7vA/tFOgXAhm2NCIpYVC1A4vwUoX5qxI0 michal@automation"
+
+system_packages:
+  - python3
+  - python3-pip
+  - git
+  - curl
+  - wget
+  - mtr
+  - tree
+  - htop
+  - mc
+  - jq
+  - nmap
+  - tcpdump
+  - netcat-openbsd
+  - whois
+  - ipcalc
+  - traceroute
+  - arping 
+  - iperf3
+  - hping3
+  - openssl
+
+python_packages:
+  - netmiko
+  - napalm
+  - nornir
+  - nornir-napalm
+  - nornir-netmiko
+  - ncclient
+  - textfsm
+  - ntc-templates
+  - genie
+  - pyats
+  - rich
+  - tabulate
+  - cherrypy  
+  # === Juniper ===
+  - junos-eznc
+  - jxmlease
+
+docker_edition: 'ce'
+docker_package: "docker-{{ docker_edition }}"
+docker_package_state: present
+docker_service_manage: true
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
+docker_install_compose_plugin: true
+docker_compose_package: docker-compose-plugin
+docker_compose_package_state: present
+docker_users: "{{ ansible_user }}"

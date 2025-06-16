@@ -1,1 +1,1 @@
-automation ansible_host=
+automation ansible_host=192.168.1.254 
