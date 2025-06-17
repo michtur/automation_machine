@@ -1,1 +1,1 @@
-automation ansible_host=192.168.1.254 
+automation ansible_host=83.8.12.4 ansible_port=12322
