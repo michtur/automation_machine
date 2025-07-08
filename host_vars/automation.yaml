@@ -41,6 +41,7 @@ system_packages:
   - iperf3
   - hping3
   - openssl
+  - speedtest-cli
 
 python_packages:
   - netmiko
